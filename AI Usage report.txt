@@ -1,0 +1,32 @@
+https://ai-dashboard-lime.vercel.app/
+
+AI Tools Used
+- Primary tools: ChatGPT, Cursor, Claude
+- Key use cases: -> ChatGPT was mainly used for creatig broiler plate code and cursor for most of the frontend development and debuging.
+		 -> Mistra-small api was used for the integration of natural language for the creation of visualizations.
+
+Sample Prompts (2-3 examples)
+1. "Create a minimal Next.js API web app that allows users to:
+		Upload a CSV file.
+		Ask for a chart type (line, bar, pie, etc.) and column names for X and Y axes via a simple form.
+		Generate and display the requested visualization using libraries like  Chart.js & react-chartjs-2.
+    No frontend styling is needed—just a barebones HTML form for upload and inputs, and a page to display the chart. Use minimal code and only necessary dependencies."
+
+2. "Create a minimal React (or Next.js) frontend that:
+	Allows users to upload a CSV or xlsx file.
+	Reads column names and lets users either select chart type + columns or give a natural language instruction like 'line chart of sales over time'.
+	Visualizes the data using Chart.js.
+	Important:
+	Use the @design.json file strictly for the UI layout and design tokens (colors, font sizes, padding, etc.).
+	Do not hardcode styles—read from design.json for all UI components (buttons, input boxes, chart container).
+	Keep the UI minimal but functional with no extra styling outside of design.json.
+	Create components for:
+		FileUpload (handles CSV parsing)	
+		ChartDisplay (renders selected chart)
+		InstructionInput (text input for natural language to chart mapping)."
+
+AI vs Manual Work Split
+-AI-generated: ~50% (Chart.js configuration, data table setup, boilerplate React components, ESLint/TS fixes).
+-Manual coding: ~50% (Mistral API integration, AI route implementation, metrics computation, file upload parsing, and full dashboard logic).
+-Customization: Added dark/light theme toggle, chart data mapping, and production-ready Next.js configuration.
+Note: The Mistral AI API implementation and integration logic were done entirely by me without AI assistance.
