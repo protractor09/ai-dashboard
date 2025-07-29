@@ -45,3 +45,9 @@ An interactive AI-powered dashboard built with **Next.js**, **React**, and **Cha
 ```bash
 git clone https://github.com/your-username/ai-dashboard.git
 cd ai-dashboard
+
+npm install
+
+MISTRAL_API_KEY=your_mistral_api_key
+
+npm run dev
