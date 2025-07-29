@@ -17,7 +17,7 @@ import {
   ArcElement,
 } from "chart.js";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter, TableCaption } from "@/components/ui/table";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -109,7 +109,7 @@ export default function Page() {
   // ===== STATE MANAGEMENT =====
   
   // Core data state
-  const [data, setData] = useState<any[][]>([]);
+  const [data, setData] = useState<(string | number)[][]>([]);
   const [columns, setColumns] = useState<string[]>([]);
   
   // Chart configuration state
@@ -190,7 +190,7 @@ export default function Page() {
               return;
             }
             
-            setData(result.data as any[][]);
+            setData(result.data as (string | number)[][]);
             setColumns(result.data[0] as string[]);
             setSelectedColumns(result.data[0] as string[]);
           },
@@ -215,7 +215,7 @@ export default function Page() {
             const sheet = workbook.Sheets[sheetName];
             const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
             
-            setData(sheetData as any[][]);
+            setData(sheetData as (string | number)[][]);
             setColumns(sheetData[0] as string[]);
             setSelectedColumns(sheetData[0] as string[]);
           } catch (error) {
@@ -257,25 +257,25 @@ export default function Page() {
 
         // Calculate total revenue
         const totalRevenue = rows.reduce(
-          (sum, row) => sum + (parseFloat(row[revenueIndex]) || 0),
+          (sum, row) => sum + (parseFloat(String(row[revenueIndex])) || 0),
           0
         );
         
         // Calculate total users
         const totalUsers = rows.reduce(
-          (sum, row) => sum + (parseInt(row[usersIndex]) || 0),
+          (sum, row) => sum + (parseInt(String(row[usersIndex])) || 0),
           0
         );
         
         // Calculate total conversions
         const totalConversions = rows.reduce(
-          (sum, row) => sum + (parseInt(row[conversionsIndex]) || 0),
+          (sum, row) => sum + (parseInt(String(row[conversionsIndex])) || 0),
           0
         );
         
         // Calculate average growth
         const avgGrowth =
-          rows.reduce((sum, row) => sum + (parseFloat(row[growthIndex]) || 0), 0) /
+          rows.reduce((sum, row) => sum + (parseFloat(String(row[growthIndex])) || 0), 0) /
           rows.length;
 
         setMetrics({
@@ -378,8 +378,10 @@ export default function Page() {
           try {
             const valA = a[sortColumn];
             const valB = b[sortColumn];
-            if (!isNaN(valA) && !isNaN(valB)) {
-              return sortDirection === "asc" ? valA - valB : valB - valA;
+            const numA = Number(valA);
+            const numB = Number(valB);
+            if (!isNaN(numA) && !isNaN(numB)) {
+              return sortDirection === "asc" ? numA - numB : numB - numA;
             }
             return sortDirection === "asc"
               ? String(valA).localeCompare(String(valB))
@@ -417,7 +419,7 @@ export default function Page() {
   const visiblePages = useMemo(() => {
     const maxPagesToShow = 5;
     let start = Math.max(1, currentPage - 2);
-    let end = Math.min(totalPages, start + maxPagesToShow - 1);
+    const end = Math.min(totalPages, start + maxPagesToShow - 1);
     if (end - start < maxPagesToShow - 1) {
       start = Math.max(1, end - maxPagesToShow + 1);
     }

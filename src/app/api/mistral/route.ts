@@ -58,13 +58,13 @@ export async function POST(req: Request) {
     try {
       const parsed = JSON.parse(content);
       return NextResponse.json(parsed);
-    } catch (err) {
+    } catch {
       return NextResponse.json(
         { error: "Invalid JSON response", raw: content },
         { status: 500 }
       );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Mistral API Error:", error);
     return NextResponse.json(
       { error: "Failed to interpret instruction" },
