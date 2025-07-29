@@ -1,0 +1,311 @@
+{
+  "designSystem": {
+    "name": "The Pudding - Sci-Fi Analysis Theme",
+    "description": "Purple-magenta themed interactive data visualization design system",
+    
+    "colorPalette": {
+      "primary": {
+        "magenta": "#FF00FF",
+        "deepPurple": "#4A0E4E",
+        "mediumPurple": "#6B2C91",
+        "lightPurple": "#B565DA",
+        "darkPurple": "#2D0A30"
+      },
+      "accent": {
+        "brightMagenta": "#FF66FF",
+        "neonPink": "#FF33AA",
+        "lavender": "#E6CCFF"
+      },
+      "neutral": {
+        "black": "#000000",
+        "white": "#FFFFFF",
+        "darkGray": "#333333",
+        "mediumGray": "#666666"
+      },
+      "semantic": {
+        "interactive": "#FF00FF",
+        "hover": "#FF66FF",
+        "disabled": "#663366"
+      }
+    },
+
+    "elementStyling": {
+      "pageBackground": {
+        "primary": {
+          "background": "linear-gradient(180deg, #B565DA 0%, #4A0E4E 50%, #2D0A30 100%)",
+          "fallback": "#4A0E4E"
+        },
+        "pixelatedOverlay": {
+          "background": "repeating-conic-gradient(from 0deg, #FF00FF 0deg 90deg, transparent 90deg 180deg)",
+          "opacity": "0.1",
+          "blendMode": "multiply"
+        }
+      },
+
+      "header": {
+        "logo": {
+          "background": "#FFFFFF",
+          "color": "#000000",
+          "fontWeight": "bold",
+          "borderRadius": "8px",
+          "padding": "8px 16px",
+          "fontSize": "18px"
+        }
+      },
+
+      "typography": {
+        "mainHeading": {
+          "color": "#000000",
+          "fontSize": "48px",
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "fontFamily": "monospace"
+        },
+        "subheading": {
+          "color": "#666666",
+          "fontSize": "16px",
+          "fontWeight": "normal",
+          "textAlign": "center"
+        },
+        "bodyText": {
+          "color": "#FFFFFF",
+          "fontSize": "16px",
+          "lineHeight": "1.6",
+          "fontFamily": "system-ui"
+        },
+        "narrativeText": {
+          "color": "#FFFFFF",
+          "fontSize": "18px",
+          "lineHeight": "1.7",
+          "background": "#000000",
+          "padding": "20px",
+          "borderRadius": "4px"
+        }
+      },
+
+      "interactiveElements": {
+        "toggleButton": {
+          "background": "#FFFFFF",
+          "color": "#000000",
+          "border": "2px solid #000000",
+          "borderRadius": "4px",
+          "padding": "8px 16px",
+          "fontSize": "14px",
+          "cursor": "pointer",
+          "states": {
+            "hover": {
+              "background": "#FF00FF",
+              "color": "#FFFFFF",
+              "border": "2px solid #FF00FF"
+            },
+            "active": {
+              "background": "#000000",
+              "color": "#FFFFFF"
+            }
+          }
+        },
+        "callToAction": {
+          "background": "#000000",
+          "color": "#FF00FF",
+          "border": "none",
+          "padding": "12px 24px",
+          "fontSize": "16px",
+          "cursor": "pointer",
+          "states": {
+            "hover": {
+              "color": "#FF66FF",
+              "textDecoration": "underline"
+            }
+          }
+        }
+      },
+
+      "dataVisualization": {
+        "chartContainer": {
+          "background": "transparent",
+          "padding": "40px 20px"
+        },
+        "barChart": {
+          "primaryBar": {
+            "fill": "#FF00FF",
+            "stroke": "none"
+          },
+          "secondaryBar": {
+            "fill": "#B565DA",
+            "stroke": "none"
+          },
+          "tertiaryBar": {
+            "fill": "#6B2C91",
+            "stroke": "none"
+          }
+        },
+        "chartLabels": {
+          "color": "#CCCCCC",
+          "fontSize": "14px",
+          "fontFamily": "system-ui",
+          "textAlign": "center"
+        },
+        "decadeLabel": {
+          "color": "#999999",
+          "fontSize": "16px",
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "marginTop": "12px"
+        }
+      },
+
+      "pixelatedElements": {
+        "decorativeGraphics": {
+          "primaryColor": "#FF00FF",
+          "secondaryColor": "#B565DA",
+          "shadowColor": "#2D0A30",
+          "pixelSize": "4px",
+          "antialiasing": "none"
+        },
+        "cityscape": {
+          "buildings": "#4A0E4E",
+          "windows": "#FF00FF",
+          "sky": "linear-gradient(180deg, #6B2C91 0%, #2D0A30 100%)",
+          "details": "#B565DA"
+        }
+      },
+
+      "contentBlocks": {
+        "textBlock": {
+          "background": "#000000",
+          "color": "#FFFFFF",
+          "padding": "24px",
+          "borderRadius": "0px",
+          "maxWidth": "800px",
+          "margin": "0 auto"
+        },
+        "highlightedText": {
+          "background": "#FF00FF",
+          "color": "#FFFFFF",
+          "padding": "2px 6px",
+          "borderRadius": "2px",
+          "fontWeight": "normal"
+        }
+      }
+    },
+
+    "layoutRules": {
+      "containerMaxWidth": "1200px",
+      "sectionPadding": "60px 20px",
+      "elementSpacing": "40px",
+      "responsiveBreakpoints": {
+        "mobile": "768px",
+        "tablet": "1024px",
+        "desktop": "1200px"
+      }
+    },
+
+    "visualEffects": {
+      "pixelatedShadows": {
+        "elements": ["decorativeGraphics", "cityscape"],
+        "specification": "filter: drop-shadow(4px 4px 0px #2D0A30)"
+      },
+      "retroFilter": {
+        "elements": ["pixelatedElements"],
+        "specification": "image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges"
+      },
+      "backgroundNoise": {
+        "elements": ["pageBackground"],
+        "specification": "background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"4\"><rect width=\"4\" height=\"4\" fill=\"%23FF00FF\" opacity=\"0.03\"/></svg>')"
+      }
+    },
+
+    "doNotRules": {
+      "colorMisapplication": [
+        "DO NOT apply chart bar colors (#FF00FF, #B565DA) to text elements",
+        "DO NOT use background gradients on small UI elements like buttons",
+        "DO NOT apply pixelated effects to typography",
+        "DO NOT use bright magenta (#FF00FF) for body text - use white (#FFFFFF)",
+        "DO NOT apply decorative pixel shadows to text containers"
+      ],
+      "layoutRestrictions": [
+        "DO NOT apply chart container styling to text blocks",
+        "DO NOT use decorative graphic colors for functional UI elements",
+        "DO NOT apply cityscape colors to data visualization elements",
+        "DO NOT use pixelated rendering on smooth UI components"
+      ],
+      "interactionStates": [
+        "DO NOT use the same hover color for different element types",
+        "DO NOT apply chart hover states to navigation elements",
+        "DO NOT use disabled colors for active interactive elements"
+      ]
+    },
+
+    "componentStates": {
+      "default": {
+        "primaryButton": {
+          "background": "#000000",
+          "color": "#FF00FF",
+          "border": "none"
+        },
+        "secondaryButton": {
+          "background": "#FFFFFF",
+          "color": "#000000",
+          "border": "2px solid #000000"
+        }
+      },
+      "hover": {
+        "primaryButton": {
+          "color": "#FF66FF",
+          "textDecoration": "underline"
+        },
+        "secondaryButton": {
+          "background": "#FF00FF",
+          "color": "#FFFFFF",
+          "border": "2px solid #FF00FF"
+        }
+      },
+      "focus": {
+        "allInteractive": {
+          "outline": "2px solid #FF00FF",
+          "outlineOffset": "2px"
+        }
+      },
+      "disabled": {
+        "allInteractive": {
+          "opacity": "0.5",
+          "cursor": "not-allowed"
+        }
+      }
+    },
+
+    "specificSelectors": {
+      ".chart-bar-primary": { "fill": "#FF00FF" },
+      ".chart-bar-secondary": { "fill": "#B565DA" },
+      ".chart-bar-tertiary": { "fill": "#6B2C91" },
+      ".pixel-graphic": { "image-rendering": "pixelated" },
+      ".narrative-text": { "background": "#000000", "color": "#FFFFFF" },
+      ".highlight-term": { "background": "#FF00FF", "color": "#FFFFFF" },
+      ".decade-label": { "color": "#999999", "font-size": "16px" },
+      ".cta-button": { "background": "#000000", "color": "#FF00FF" },
+      ".toggle-button": { "background": "#FFFFFF", "border": "2px solid #000000" }
+    },
+
+    "contextualApplications": {
+      "dataVisualization": {
+        "description": "Charts use magenta tones for data representation",
+        "primaryDataColor": "#FF00FF",
+        "secondaryDataColor": "#B565DA",
+        "backgroundElements": "transparent",
+        "labels": "#CCCCCC"
+      },
+      "narrativeContent": {
+        "description": "Story content uses high contrast black/white with magenta highlights",
+        "containerBackground": "#000000",
+        "textColor": "#FFFFFF",
+        "accentColor": "#FF00FF"
+      },
+      "decorativeElements": {
+        "description": "Pixel art uses full purple-magenta spectrum",
+        "primaryPixelColor": "#FF00FF",
+        "shadingColors": ["#B565DA", "#6B2C91", "#4A0E4E"],
+        "shadowColor": "#2D0A30"
+      }
+    }
+  }
+}
